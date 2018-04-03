@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Animal.NewMainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Animal"
+    BackgroundColor="MintCream">
+
+    <ScrollView>
+        <StackLayout VerticalOptions="Center">
+            <Picker
+                HorizontalOptions="Fill"
+                ItemsSource="{Binding SortingTypeStringList}"
+                SelectedIndex="{Binding SortingTypeIndex}"
+                VerticalOptions="Center" />
+            <Entry
+                HorizontalOptions="Fill"
+                HorizontalTextAlignment="Center"
+                Placeholder="Enter the desired file name:"
+                Text="{Binding DesiredFileName}" />
+            <Grid HorizontalOptions="CenterAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HorizontalOptions="Start"
+                    HorizontalTextAlignment="Start"
+                    Text="{Binding CurrentFileName}" />
+                <Label
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HorizontalOptions="End"
+                    HorizontalTextAlignment="End"
+                    Text="{Binding CurrentSortingLabel}" />
+            </Grid>
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Button
+                    BackgroundColor="LightCyan"
+                    BorderWidth="10"
+                    Command="{Binding GetAllDataCommand}"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    HorizontalOptions="CenterAndExpand"
+                    IsEnabled="{Binding GetDataEnabled}"
+                    Text="Step 1. Get Data" />
+                <Button
+                    BackgroundColor="LightCyan"
+                    BorderWidth="10"
+                    Command="{Binding SortListCommand}"
+                    CornerRadius="25"
+                    FontAttributes="Bold"
+                    FontSize="Small"
+                    HorizontalOptions="CenterAndExpand"
+                    IsEnabled="{Binding SortEnabled}"
+                    Text="Step 2. Sort" />
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Button
+                    BackgroundColor="LightGray"
+                    BorderWidth="10"
+                    Command="{Binding ViewSortedListCommand}"
+                    CornerRadius="20"
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HorizontalOptions="CenterAndExpand"
+                    IsEnabled="{Binding ViewListEnabled}"
+                    Text="Step 3. PROCEED" />
+                <Button
+                    BackgroundColor="LightGray"
+                    BorderWidth="10"
+                    Command="{Binding ClearDataCommand}"
+                    CornerRadius="20"
+                    FontAttributes="Bold"
+                    FontSize="Medium"
+                    HorizontalOptions="CenterAndExpand"
+                    Text="clear" />
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

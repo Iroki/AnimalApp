@@ -1,5 +1,5 @@
-Animal.Android/obj/
-.vs/
-Animal.Android/bin/
-Animal.iOS/obj/
+Animal/Animal.Android/obj/
 packages/
+Animal/Animal/obj/
+Animal/Animal.iOS/obj/
+Animal/Animal.Android/bin/

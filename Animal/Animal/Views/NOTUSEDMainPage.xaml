@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Animal.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Animal"
+    BackgroundColor="LightSlateGray">
+
+    <StackLayout>
+        <Picker
+            HorizontalOptions="Fill"
+            ItemsSource="{Binding SortingTypes}"
+            SelectedIndex="{Binding SortingTypeIndex}"
+            VerticalOptions="Center" />
+        <Entry
+            HorizontalOptions="Fill"
+            HorizontalTextAlignment="Center"
+            Placeholder="Enter the desired file name:"
+            Text="{Binding DesiredFileName}" />
+        <Frame
+            BackgroundColor="LightCyan"
+            CornerRadius="25"
+            HasShadow="True"
+            OutlineColor="LightGreen">
+            <StackLayout HorizontalOptions="Center" VerticalOptions="End">
+                <Button
+                    Command="{Binding DownloadFileCommand}"
+                    FontSize="Large"
+                    HorizontalOptions="Center"
+                    Text="DOWNLOAD FILE" />
+                <Button
+                    Command="{Binding ReturnDeserializedListCommand}"
+                    FontSize="Large"
+                    HorizontalOptions="Center"
+                    Text="VIEW LIST" />
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>

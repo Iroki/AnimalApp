@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Animal.GeneratedListPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <StackLayout>
+        <ListView
+            HasUnevenRows="True"
+            HorizontalOptions="Fill"
+            ItemsSource="{Binding SortedAnimalCollection}"
+            SelectedItem="{Binding SelectedListItem}"
+            SeparatorVisibility="None"
+            VerticalOptions="FillAndExpand">
+            <!--
+                DeserializedResultList - Список объектов класса,
+                поэтому текст выводится отдельно через Description
+            -->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout>
+                                <Frame
+                                    Margin="10,10,10,10"
+                                    BackgroundColor="PowderBlue"
+                                    CornerRadius="10"
+                                    HasShadow="True"
+                                    OutlineColor="MintCream">
+
+                                    <Label
+                                        FontAttributes="Bold"
+                                        FontSize="Medium"
+                                        LineBreakMode="WordWrap"
+                                        Text="{Binding Description}"
+                                        VerticalOptions="FillAndExpand" />
+                                    <!--
+                                        (ВАЖНО - "Description" указан только в МОДЕЛИ "Animal.cs"
+                                        (имеет вид "public string Description { get => ToString(); } "),
+                                        а View привязан к VIEWMODEL. Это возможно, так как ItemTemplate -
+                                        "View для каждого элемента списка, к которому идёт привязка в ItemsSource",
+                                        а привязка идёт к списку классов "Animal.cs")
+                                    -->
+                                </Frame>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <StackLayout
+            HorizontalOptions="CenterAndExpand"
+            Orientation="Horizontal"
+            VerticalOptions="End">
+            <Button
+                BackgroundColor="Orange"
+                Command="{Binding RemoveSelectedItemCommand}"
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                Text="Remove Item" />
+            <Button
+                BackgroundColor="Aquamarine"
+                Command="{Binding ClearListAndReturn}"
+                FontSize="Medium"
+                HorizontalOptions="Center"
+                Text="Clear All" />
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
